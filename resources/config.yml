@@ -1,0 +1,6 @@
+---
+ # WARN: Make sure the symbol is a single character!
+chat-symbol: "#"
+permission: "auth.chat.perm"
+format: "§f[§3{player}§f] > §3Yetkili Sohbet: §b{message}."
+...
