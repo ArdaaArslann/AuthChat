@@ -1,0 +1,5 @@
+name: AuthChat
+api: 4.0.0
+main: ArdaaArslann\AuthMain
+version: 1.0
+author: ArdaaArslann
