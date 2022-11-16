@@ -25,17 +25,17 @@ class AuthMain extends PluginBase implements Listener{
 	}
 
 	public function onChat(PlayerChatEvent $event):void{
-		$g = $event->getPlayer();
-		$message = $event->getMessage();
-		$newmessage = substr($message, 1);
-		if(substr($message, 0, 1) != $this->config->get("chat-symbol")) return;
-		if(!$g->hasPermission($this->config->get("permission")) and !$this->getServer()->isOp($g->getName())) return;
-		foreach($this->getServer()->getOnlinePlayers() as $player){
+	  $g = $event->getPlayer();
+	  $message = $event->getMessage();
+	  $newmessage = substr($message, 1);
+	  if(substr($message, 0, 1) != $this->config->get("chat-symbol")) return;
+            if(!$g->hasPermission($this->config->get("permission")) and !$this->getServer()->isOp($g->getName())) return;
+	      foreach($this->getServer()->getOnlinePlayers() as $player){
 		if($player->hasPermission($this->config->get("permission")) or $this->getServer()->isOp($player->getName())){
-		$player->sendMessage(str_replace(["{player}", "{message}"], [$g->getName(), $newmessage], $this->config->get("format")));
+		  $player->sendMessage(str_replace(["{player}", "{message}"], [$g->getName(), $newmessage], $this->config->get("format")));
 		}
-		}
-		$this->getLogger()->info(str_replace(["{player}", "{message}"], [$g->getName(), $newmessage], $this->config->get("format")));
-		$event->cancel();
+	      }
+	   $this->getLogger()->info(str_replace(["{player}", "{message}"], [$g->getName(), $newmessage], $this->config->get("format")));
+	   $event->cancel();
 	}
 }
